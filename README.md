@@ -1,5 +1,6 @@
 # Rachel HR Interview Bot
-![Rachel HR Interview Bot](https://github.com/user-attachments/assets/2f5a6f0c-b01e-4c3b-a340-d69d167eb3eb)
+![Rachel HR Interview Bot](https://github.com/user-attachments/assets/fc5e1b56-9794-440e-b6ef-286ef199a2e8)
+
 
 ## Table of Contents
 1. [Introduction](#introduction)
