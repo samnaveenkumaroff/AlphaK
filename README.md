@@ -6,6 +6,11 @@
 2. [Features](#features)
 3. [Technology Stack](#technology-stack)
 4. [Installation](#installation)
+   - [Installation via Python pip](#installation-via-python-pip-)
+   - [Quick Start with Docker](#quick-start-with-docker-)
+   - [Other Installation Methods](#other-installation-methods)
+   - [Troubleshooting](#troubleshooting)
+   - [Keeping Your Docker Installation Up-to-Date](#keeping-your-docker-installation-up-to-date)
 5. [Usage](#usage)
 6. [Technical Details](#technical-details)
 7. [Contributing](#contributing)
@@ -46,7 +51,7 @@ Rachel HR Interview Bot leverages a powerful combination of cutting-edge technol
 - **scikit-learn**: Implements TF-IDF vectorization and cosine similarity for answer comparison.
 - **PyPDF2**: Enables PDF parsing for resume analysis.
 
-##Technical Architecture
+### Technical Architecture
 
 Rachel HR Interview Bot is built on a robust and scalable architecture, leveraging cutting-edge technologies:
 
@@ -65,41 +70,6 @@ Rachel HR Interview Bot is built on a robust and scalable architecture, leveragi
 ```
 
 ## 4. Installation
-
-To set up Rachel HR Interview Bot, follow these steps:
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/your-repo/rachel-hr-bot.git
-   cd rachel-hr-bot
-   ```
-
-2. Create a virtual environment:
-
-   For Windows:
-   ```
-   python -m venv venv
-   venv\Scripts\activate
-   ```
-
-   For macOS and Linux:
-   ```
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-4. Download the necessary model files:
-   - Llama model: Download from [https://ollama.com/library/llama3.2:3b-instruct-q8_0](https://ollama.com/library/llama3.2:3b-instruct-q8_0)
-   - spaCy English model: Run `python -m spacy download en_core_web_sm`
-
-5. Set up CUDA (if using GPU acceleration):
-   - Ensure you have CUDA-compatible GPU and drivers installed
-   - Install PyTorch with CUDA support: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
 
 ### Installation via Python pip 🐍
 
@@ -132,7 +102,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
 > [!TIP]  
 > If you wish to utilize Open WebUI with Ollama included or CUDA acceleration, we recommend utilizing our official images tagged with either `:cuda` or `:ollama`. To enable CUDA, you must install the [Nvidia CUDA container toolkit](https://docs.nvidia.com/dgx/nvidia-container-runtime-upgrade/) on your Linux/WSL system.
 
-### Installation with Default Configuration
+#### Installation with Default Configuration
 
 - **If Ollama is on your computer**, use this command:
 
@@ -154,7 +124,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
   docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
   ```
 
-### Installation for OpenAI API Usage Only
+#### Installation for OpenAI API Usage Only
 
 - **If you're only using OpenAI API**, use this command:
 
@@ -162,7 +132,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
   docker run -d -p 3000:8080 -e OPENAI_API_KEY=your_secret_key -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
   ```
 
-### Installing Open WebUI with Bundled Ollama Support
+#### Installing Open WebUI with Bundled Ollama Support
 
 This installation method uses a single container image that bundles Open WebUI with Ollama, allowing for a streamlined setup via a single command. Choose the appropriate command based on your hardware setup:
 
@@ -194,7 +164,7 @@ Encountering connection issues? Our [Open WebUI Documentation](https://docs.open
 
 #### Open WebUI: Server Connection Error
 
-If you're experiencing connection issues, it’s often due to the WebUI docker container not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container . Use the `--network=host` flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: `http://localhost:8080`.
+If you're experiencing connection issues, it's often due to the WebUI docker container not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container. Use the `--network=host` flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: `http://localhost:8080`.
 
 **Example Docker Command**:
 
@@ -214,18 +184,18 @@ In the last part of the command, replace `open-webui` with your container name i
 
 Check our Migration Guide available in our [Open WebUI Documentation](https://docs.openwebui.com/tutorials/migration/).
 
-# Ollama Docker image
+### Ollama Docker image
 
-### CPU only
+#### CPU only
 
 ```bash
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 ```
 
-### Nvidia GPU
+#### Nvidia GPU
 Install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installation).
 
-#### Install with Apt
+##### Install with Apt
 1.  Configure the repository
 ```bash
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
@@ -240,7 +210,7 @@ sudo apt-get update
 sudo apt-get install -y nvidia-container-toolkit
 ```
 
-#### Install with Yum or Dnf
+##### Install with Yum or Dnf
 1.  Configure the repository
 
 ```bash
@@ -254,19 +224,19 @@ curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-contai
 sudo yum install -y nvidia-container-toolkit
 ```
 
-#### Configure Docker to use Nvidia driver
+##### Configure Docker to use Nvidia driver
 ```
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 ```
 
-#### Start the container
+##### Start the container
 
 ```bash
 docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 ```
 
-### AMD GPU
+#### AMD GPU
 
 To run Ollama using Docker with AMD GPUs, use the `rocm` tag and the following command:
 
@@ -274,15 +244,15 @@ To run Ollama using Docker with AMD GPUs, use the `rocm` tag and the following c
 docker run -d --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama:rocm
 ```
 
-### Run model locally
+#### Run model locally
 
 Now you can run a model:
 
 ```
-docker exec -it ollama ollama run llama3.2
+docker exec -it ollama ollama run llama2
 ```
 
-### Try different models
+#### Try different models
 
 More models can be found on the [Ollama library](https://ollama.com/library).
 
