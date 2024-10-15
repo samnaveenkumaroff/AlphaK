@@ -47,6 +47,24 @@ Rachel HR Interview Bot leverages a powerful combination of cutting-edge technol
 - **scikit-learn**: Implements TF-IDF vectorization and cosine similarity for answer comparison.
 - **PyPDF2**: Enables PDF parsing for resume analysis.
 
+##Technical Architecture
+
+Rachel HR Interview Bot is built on a robust and scalable architecture, leveraging cutting-edge technologies:
+
+```
++-------------------+     +------------------+     +------------------+
+|   User Interface  |     |  Core Logic      |     |  AI Engine       |
+| (Gradio Frontend) | <-> | (Python Backend) | <-> | (Llama 3.2 Model)|
++-------------------+     +------------------+     +------------------+
+         ^                        ^                         ^
+         |                        |                         |
+         v                        v                         v
++-------------------+     +------------------+     +------------------+
+|   PDF Processor   |     | NLP Pipeline     |     |  GPU Accelerator |
+|   (PyPDF2)        |     | (spaCy, TextRank)|     |  (CUDA)          |
++-------------------+     +------------------+     +------------------+
+```
+
 ## 4. Installation
 
 To set up Rachel HR Interview Bot, follow these steps:
