@@ -1,5 +1,6 @@
 # Rachel HR Interview Bot
 <img src="https://github.com/user-attachments/assets/fc5e1b56-9794-440e-b6ef-286ef199a2e8" alt="Rachel HR Interview Bot" width="300" height="300">
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
