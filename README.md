@@ -2,7 +2,8 @@
 
 ## Revolutionizing HR Interview Preparation with Advanced AI
 
-![Rachel HR Interview Bot Logo]()
+![Rachel HR Interview Bot Logo](![user](https://github.com/user-attachments/assets/62422c8c-1db4-4559-bfc6-3995688538e9)
+)
 
 ## Table of Contents
 1. [Introduction](#introduction)
