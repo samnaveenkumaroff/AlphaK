@@ -1,74 +1,173 @@
-# DigiHR: AI-Powered HR Interview Preparation Chatbot
+# Rachel HR Interview Bot
 
-## 🚀 Introduction
+## Revolutionizing HR Interview Preparation with Advanced AI
 
-DigiHR is an innovative AI-powered chatbot developed by **Team Alpha K**, consisting of Aravindan M (URK22AI1026) and Sam Naveenkumar V (URK22AI1043) from Karunya Institute of Technology and Sciences. This generative AI project utilizes the TinyLlama language model to revolutionize the HR interview preparation process for students. DigiHR employs advanced natural language processing (NLP) techniques to analyze resumes, identify domains of specialization, and generate complex HR interview questions tailored to each candidate's projects, work processes, and choice of tools.
+![Rachel HR Interview Bot Logo]()
 
-The chatbot will ask a variety of questions, including:
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Technology Stack](#technology-stack)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Architecture](#architecture)
+7. [AI Model Details](#ai-model-details)
+8. [Performance Optimization](#performance-optimization)
+9. [Future Enhancements](#future-enhancements)
+10. [Contributors](#contributors)
+11. [License](#license)
 
-- **Technical Questions**: Assessing the candidate's technical knowledge and skills related to their field.
-- **Comparative Questions**: Evaluating the candidate's ability to compare tools, methodologies, and processes.
-- **Chatbot Model Questions**: Understanding the candidate's familiarity with AI technologies, including their experiences with chatbot models and their applications.
-- **Project-Related Questions**: Probing deeper into the candidate's projects, asking them to explain their decision-making processes, challenges faced, and methodologies employed.
+## Introduction
 
-## 🔍 Features
+Rachel HR Interview Bot is a cutting-edge AI-powered application designed to revolutionize the HR interview preparation process for students, freshers, and experienced professionals. Developed by Sam Naveenkumar V (URK22AI1043) and Aravindan M (URK22AI1026) from the B.Tech Artificial Intelligence and Data Science program at Karunya Institute of Technology and Sciences, this project leverages state-of-the-art natural language processing techniques to provide a personalized and immersive interview experience.
 
-- **Seamless Resume Upload**: Students can easily upload their resumes in PDF format.
-- **Intelligent Domain Analysis**: The chatbot employs state-of-the-art AI algorithms to analyze resumes and pinpoint the candidate's area of expertise (e.g., Data Science, Artificial Intelligence, Cybersecurity).
-- **Dynamic Question Generation**: Based on the identified domain, the chatbot generates relevant HR interview questions, including technical queries, comparative analysis, and probing questions about the candidate's projects and decision-making processes.
-- **Immersive Chat Interface**: A futuristic, user-friendly chat interface allows for seamless interaction between the student and the chatbot, providing a smooth and engaging experience.
+The bot employs advanced algorithms to analyze resumes, identify domains of specialization, and generate complex technical HR interview questions tailored to each candidate's unique profile. By utilizing the latest open-sourced language models and a user-friendly interface built with OpenWeb UI, Rachel aims to bridge the gap between theoretical knowledge and practical interview scenarios.
 
-## 🛠️ Technologies Used
+## Features
 
-DigiHR is built using cutting-edge technologies and libraries, ensuring maximum efficiency and performance:
+- **Resume Analysis**: Utilizes PyPDF2 for extracting text from PDF resumes and employs NLP techniques to identify key information such as specialization, work experience, internships, projects, and courses completed.
 
-- **Python**: The programming language of choice for its simplicity, versatility, and extensive library support.
-- **Gradio**: A modern, user-friendly library for creating interactive web applications and chatbots.
-- **Transformers**: A state-of-the-art NLP library that powers the resume analysis and question generation capabilities of DigiHR.
-- **PyTorch**: A powerful machine learning library that enables the use of advanced AI models, such as the TinyLlama model used in DigiHR.
-- **PyPDF2**: A library that facilitates the extraction of text from PDF resumes.
+- **Domain Identification**: Automatically detects the candidate's domain of specialization based on resume content, enabling targeted question generation.
 
-## 🔧 Installation and Setup
+- **Dynamic Question Generation**: Leverages the Llama 3.2 language model to create complex, technical HR interview questions tailored to the candidate's background and the specific job role.
 
-To run DigiHR in a Google Colab notebook (`DigiHR.ipynb`), follow these steps:
+- **Interactive Chat Interface**: Provides a WhatsApp-like chat experience for seamless interaction between the candidate and the AI interviewer.
 
-1. **Open the Colab Notebook**: Navigate to your Google Drive and open `DigiHR.ipynb`.
+- **Real-time Answer Evaluation**: Employs advanced NLP techniques, including TF-IDF vectorization and cosine similarity, to evaluate candidate responses and provide instant feedback.
 
-2. **Install Required Libraries**: At the beginning of the notebook, ensure you have the necessary libraries installed by running:
-   ```python
-   !pip install gradio transformers torch PyPDF2
+- **Comprehensive Feedback System**: Offers detailed feedback on each answer, including relevance, technical accuracy, and suggestions for improvement.
+
+- **Answer Generation**: Capability to generate model answers for reference, helping candidates understand the expected response quality.
+
+- **Job Role and Description Integration**: Allows users to select specific job roles and input job descriptions, further personalizing the interview experience.
+
+- **GPU Acceleration**: Utilizes CUDA for enhanced performance, enabling rapid question generation and response evaluation.
+
+## Technology Stack
+
+- **Frontend**: OpenWeb UI (enhanced for user experience)
+- **Backend**: Python 3.8+
+- **AI Model**: Llama 3.2 (3B parameters, instruction-tuned)
+- **NLP Libraries**: spaCy, PyTextRank
+- **Machine Learning**: scikit-learn (TfidfVectorizer, cosine_similarity)
+- **PDF Processing**: PyPDF2
+- **GPU Acceleration**: PyTorch with CUDA support
+- **UI Framework**: Gradio
+
+## Installation
+
+### Prerequisites
+- Python 3.8+
+- CUDA-compatible GPU
+- Git
+
+### Setting up the environment
+
+#### Windows
+```bash
+python -m venv rachel_env
+rachel_env\Scripts\activate
+pip install -r requirements.txt
+```
+
+#### macOS and Linux
+```bash
+python3 -m venv rachel_env
+source rachel_env/bin/activate
+pip install -r requirements.txt
+```
+
+### Cloning the repository
+```bash
+git clone https://github.com/your-repo/rachel-hr-bot.git
+cd rachel-hr-bot
+```
+
+### Installing dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Downloading the Llama 3.2 model
+```bash
+# Run the following command to download the model
+python download_model.py
+```
+
+## Usage
+
+1. Activate the virtual environment:
+   - Windows: `rachel_env\Scripts\activate`
+   - macOS/Linux: `source rachel_env/bin/activate`
+
+2. Run the application:
+   ```bash
+   python rachel_hr_bot.py
    ```
 
-3. **Download the TinyLlama Model**: Ensure you have access to the TinyLlama model. You may need to load it within the notebook environment.
+3. Open your web browser and navigate to `http://localhost:7860` to access the Rachel HR Interview Bot interface.
 
-4. **Run the Application**: Execute the cells in the notebook to start the DigiHR chatbot.
+4. Upload your resume, select a job role, and enter the job description to begin the interview process.
 
-5. **Access the Chatbot**: Once the application is running, you will receive a link to access the chatbot interface.
+## Architecture
 
-## 🌟 Usage
+Rachel HR Interview Bot follows a modular architecture designed for scalability and maintainability:
 
-1. **Upload Resume**: Click on the "Upload your resume (PDF)" button to upload your CV.
-2. **Domain Selection**: After the resume is analyzed, a dropdown menu will appear with the detected domains. Select your domain of specialization.
-3. **Chat Interaction**: The chatbot will display the identified domain and generate relevant HR questions. You can interact with the chatbot by typing your responses or queries in the chat input box.
+1. **Resume Processing Module**: Handles PDF extraction and initial text analysis.
+2. **Domain Identification Module**: Classifies the resume into relevant domains.
+3. **Question Generation Engine**: Interfaces with the Llama 3.2 model to create tailored questions.
+4. **Answer Evaluation System**: Utilizes NLP techniques to assess candidate responses.
+5. **Feedback Generation Module**: Synthesizes evaluation results into actionable feedback.
+6. **User Interface Layer**: Manages the OpenWeb UI for user interactions.
+7. **GPU Acceleration Layer**: Optimizes performance using CUDA capabilities.
 
-## 📄 Description
+## AI Model Details
 
-DigiHR is an AI-powered chatbot for students at Karunya Institute of Technology and Sciences, designed to enhance HR interview preparation. It analyzes resumes to identify specializations and generates tailored HR questions, including tricky project-related inquiries, helping students build confidence for internships and job placements.
+Rachel utilizes the Llama 3.2 model, specifically the 3B parameter version optimized for instruction-tuning. Key characteristics include:
 
-## 🤝 Contributing
+- **Model**: hugging-quants/Llama-3.2-3B-Instruct-Q8_0-GGUF
+- **Size**: 3 billion parameters
+- **Training**: Instruction-tuned for dialogue and task completion
+- **Capabilities**: Multilingual support, agentic retrieval, and summarization
+- **Performance**: Outperforms many open-source and closed chat models on industry benchmarks
+- **Deployment**: Optimized for efficient inference using quantization techniques
 
-We welcome contributions from the community to further enhance DigiHR. If you have any suggestions, bug reports, or feature requests, please feel free to submit an issue or a pull request on the [GitHub repository](https://github.com/samnaveenkumaroff/AlphaK).
+## Performance Optimization
 
-## 📄 License
+To ensure smooth operation and rapid response times, Rachel implements several optimization techniques:
 
-This project is licensed under the [MIT License](LICENSE).
+1. **GPU Acceleration**: Utilizes CUDA for parallel processing of NLP tasks.
+2. **Model Quantization**: Employs 8-bit quantization (Q8_0) to reduce memory footprint without significant performance loss.
+3. **Batched Processing**: Implements batched inputs for efficient utilization of GPU resources.
+4. **Caching Mechanisms**: Employs strategic caching of intermediate results to minimize redundant computations.
+5. **Asynchronous Operations**: Leverages asynchronous programming patterns to improve UI responsiveness.
 
-## 🌐 Contact
+## Future Enhancements
 
-For any inquiries or feedback, please reach out to us at:
+The Rachel HR Interview Bot project has a robust roadmap for future development, including:
 
-- **Team Alpha K**:
-  - Aravindan M (URK22AI1026): [aravindanm@karunya.edu.in](mailto:aravindanm@karunya.edu.in)
-  - Sam Naveenkumar V (URK22AI1043): [samnaveenkumar@karunya.edu.in](mailto:samnaveenkumar@karunya.edu.in)
+1. Integration of multi-modal inputs (video, audio) for more comprehensive interview simulations.
+2. Implementation of sentiment analysis to gauge candidate confidence and stress levels.
+3. Expansion of the model to include industry-specific knowledge bases.
+4. Development of a collaborative feature for mock group interviews.
+5. Integration with popular Applicant Tracking Systems (ATS) for seamless workflow incorporation.
 
-Let's revolutionize HR interview preparation together with DigiHR!
+## Contributors
+
+- **Sam Naveenkumar V** (URK22AI1043)
+  - Role: Lead Developer
+  - Focus: AI Model Integration, NLP Pipeline Development
+
+- **Aravindan M** (URK22AI1026)
+  - Role: UI/UX Designer, Backend Developer
+  - Focus: OpenWeb UI Enhancement, Performance Optimization
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+
+For more information, please contact the development team at rachel.hr.bot@karunyauniversity.edu.in
+
+© 2024 Karunya Institute of Technology and Sciences. All Rights Reserved.
