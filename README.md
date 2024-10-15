@@ -1,6 +1,6 @@
 # Rachel HR Interview Bot
 ![Rachel HR Interview Bot](https://github.com/user-attachments/assets/fc5e1b56-9794-440e-b6ef-286ef199a2e8  =500x500)
-
+<img src="https://github.com/user-attachments/assets/fc5e1b56-9794-440e-b6ef-286ef199a2e8" alt="Rachel HR Interview Bot" width="500" height="500">
 ![Rachel HR Interview Bot](https://github.com/user-attachments/assets/fc5e1b56-9794-440e-b6ef-286ef199a2e8 =500x500)
 ## Table of Contents
 1. [Introduction](#introduction)
