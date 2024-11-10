@@ -249,7 +249,7 @@ docker run -d --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 114
 Now you can run a model:
 
 ```
-docker exec -it ollama ollama run llama2
+docker exec -it ollama ollama run nemotron:70b-instruct-fp16
 ```
 
 #### Try different models
