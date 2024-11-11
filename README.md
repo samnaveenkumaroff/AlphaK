@@ -105,8 +105,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
 #### Installation with Default Configuration
 
 - **If Ollama is on your computer**, use this command:
-  [Open WebUI Documentation](https://docs.openwebui.com/troubleshooting/) run this Open WebUI
-  [import this rachel_json_file](https://drive.google.com/file/d/1tJqQUfS0smNcXtZxw1BG4dO09uBbHKUA/view?usp=drive_link)
+
 
   ```bash
   docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
