@@ -17,7 +17,7 @@
 8. [License](#license)
 9. [Acknowledgments](#acknowledgments)
     
-## 1. Introduction
+## 1. Introducing
 
 Rachel HR Interview Bot is a cutting-edge, AI-powered interview preparation assistant designed to revolutionize the HR interview process for students, freshers, and experienced professionals. Developed by Sam Naveenkumar V (URK22AI1043) and Aravindan M (URK22AI1026) from the B.Tech Artificial Intelligence and Data Science program at Karunya Institute of Technology and Sciences, Rachel employs advanced natural language processing (NLP) techniques to provide a personalized and comprehensive interview experience.
 
